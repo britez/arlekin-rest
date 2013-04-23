@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+	
+	<!-- Resources -->
+<!-- 	<bean id="orderResource" class="com.starbucks.resource.OrderResource" /> -->
+<!-- 	<bean id="paymentResource" class="com.starbucks.resource.PaymentResource" /> -->
+	<bean id="drinkResource" class="com.teabear.arlekin.resources.DrinkResource" />
+	
+	<!-- Services --> 
+<!-- 	<bean id="orderService" class="com.starbucks.services.OrderServiceImpl" /> -->
+<!-- 	<bean id="paymentService" class="com.starbucks.services.PaymentServiceImpl" /> -->
+	<bean id="drinkService" class="com.teabear.arlekin.DrinkServiceImpl" />
+	
+	<!-- Daos -->
+<!-- 	<bean id="sharedMemory" class="com.starbucks.persistence.common.SharedMemory" /> -->
+<!-- 	<bean id="orderDao" class="com.starbucks.persistence.OrderDaoImpl"/> -->
+<!-- 	<bean id="paymentDao" class="com.starbucks.persistence.PaymentDaoImpl"/> -->
+	<bean id="drinkDao" class="com.teabear.arlekin.DrinkDAOArrayImpl"/>
+	
+</beans>
