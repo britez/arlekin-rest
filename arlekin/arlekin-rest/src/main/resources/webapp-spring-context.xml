@@ -14,6 +14,9 @@
 <!-- 	<bean id="paymentResource" class="com.starbucks.resource.PaymentResource" /> -->
 	<bean id="drinkResource" class="com.teabear.arlekin.resources.DrinkResource" />
 	
+	<!-- Converters -->
+	<bean id="drinkConverter" class="com.teabear.arlekin.converter.DrinkConverter" />
+	
 	<!-- Services --> 
 <!-- 	<bean id="orderService" class="com.starbucks.services.OrderServiceImpl" /> -->
 <!-- 	<bean id="paymentService" class="com.starbucks.services.PaymentServiceImpl" /> -->

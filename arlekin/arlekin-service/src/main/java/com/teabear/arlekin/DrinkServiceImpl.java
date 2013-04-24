@@ -19,11 +19,11 @@ public class DrinkServiceImpl implements DrinkService {
 	@Autowired
 	/** The dao */
 	private DrinkDao dao;
-
+	
 	@Override
 	/** {@inherit doc} */
 	public Drink get(final String drinkId) throws DrinkNotFoundException {
-		Long id = Long.valueOf(drinkId);
+		final Long id = Long.valueOf(drinkId);
 		final Drink drink = this.dao.get(id);
 		if (drink == null){
 			throw new DrinkNotFoundException();

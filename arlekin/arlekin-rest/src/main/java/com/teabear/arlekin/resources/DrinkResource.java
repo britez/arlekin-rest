@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.teabear.arlekin.Drink;
 import com.teabear.arlekin.DrinkImpl;
 import com.teabear.arlekin.DrinkService;
+import com.teabear.arlekin.converter.DrinkConverter;
 import com.teabear.arlekin.exception.DrinkNotFoundException;
 
 /**
@@ -34,11 +35,15 @@ public class DrinkResource {
 	@Autowired
 	private DrinkService service;
 	
+	/** The converter */
+	@Autowired
+	private DrinkConverter converter;
+	
 	/** @return a list of available drinks */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response list(){
-		return Response.ok(this.service.list()).build();
+		return Response.ok(this.converter.toRepresentationList(this.service.list())).build();
 	}
 	
 	/**
@@ -55,6 +60,6 @@ public class DrinkResource {
 		}catch(final DrinkNotFoundException e){
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		return Response.ok(drink).build();
+		return Response.ok(this.converter.toRepresentation(drink)).build();
 	}
 }
