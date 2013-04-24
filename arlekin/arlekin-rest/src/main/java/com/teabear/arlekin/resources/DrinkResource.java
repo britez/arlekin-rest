@@ -34,6 +34,17 @@ public class DrinkResource {
 	@Autowired
 	private DrinkService service;
 	
+	/** @return a list of available drinks */
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response list(){
+		return Response.ok(this.service.list()).build();
+	}
+	
+	/**
+	 * @param id - {@link String} the id of the drink to retrieve
+	 * @return a {@link DrinkRepresentation}
+	 */
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@GET

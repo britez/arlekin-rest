@@ -3,8 +3,9 @@
  */
 package com.teabear.arlekin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.teabear.arlekin.exception.DrinkNotFoundException;
 
@@ -28,5 +29,11 @@ public class DrinkServiceImpl implements DrinkService {
 			throw new DrinkNotFoundException();
 		}
 		return drink;
+	}
+
+	@Override
+	/** {@inherit doc} */
+	public List<Drink> list() {
+		return this.dao.list();
 	}
 }

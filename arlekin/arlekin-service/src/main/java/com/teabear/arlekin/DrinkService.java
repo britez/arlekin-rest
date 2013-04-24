@@ -3,6 +3,8 @@
  */
 package com.teabear.arlekin;
 
+import java.util.List;
+
 import com.teabear.arlekin.exception.DrinkNotFoundException;
 
 /**
@@ -19,4 +21,7 @@ public interface DrinkService {
 	 * @throws DrinkNotFoundException - if drink not found
 	 */
 	public Drink get(final String drinkId) throws DrinkNotFoundException;
+	
+	/** @return a List of {@link DrinkImpl} */
+	public List<Drink> list();
 }
