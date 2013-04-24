@@ -18,7 +18,7 @@ public class DrinkServiceImpl implements DrinkService {
 	
 	@Autowired
 	/** The dao */
-	private DrinkDAOArrayImpl dao;
+	private DrinkDao dao;
 
 	@Override
 	/** {@inherit doc} */
