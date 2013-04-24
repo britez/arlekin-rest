@@ -7,9 +7,9 @@
     <relativePath>..</relativePath>
   </parent>
   
-  <artifactId>arlekin-persistence-mock</artifactId>
+  <artifactId>arlekin-persistence</artifactId>
   <packaging>jar</packaging>
-  <name>Arlekin PERSISTENCE MOCK</name>
+  <name>Arlekin PERSISTENCE</name>
   <url>http://maven.apache.org</url>
   
   <dependencies>
@@ -37,11 +37,6 @@
 		</dependency>
 		
 		<!-- Local Dependencies -->
-		<dependency>
-		    <groupId>com.teabear.arlekin</groupId>
-		    <artifactId>arlekin-persistence</artifactId>
-		</dependency>
-		
 		<dependency>
 		    <groupId>com.teabear.arlekin</groupId>
 		    <artifactId>arlekin-commons</artifactId>

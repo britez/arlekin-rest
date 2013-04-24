@@ -12,6 +12,7 @@
 		<module>arlekin-persistence-mock</module>
 		<module>arlekin-rest</module>
 		<module>arlekin-service</module>
+		<module>arlekin-persistence</module>
 	</modules>
   
   	<properties>
@@ -186,17 +187,23 @@
 				<version>${arlekin.version}</version>
 			</dependency>
 			
-				<dependency>
-					<groupId>com.teabear.arlekin</groupId>
-					<artifactId>arlekin-commons</artifactId>
-					<version>${arlekin.version}</version>
-				</dependency>
+			<dependency>
+				<groupId>com.teabear.arlekin</groupId>
+				<artifactId>arlekin-commons</artifactId>
+				<version>${arlekin.version}</version>
+			</dependency>
 			
-				<dependency>
-					<groupId>com.teabear.arlekin</groupId>
-					<artifactId>arlekin-persistence-mock</artifactId>
-					<version>${arlekin.version}</version>
-				</dependency>							
+			<dependency>
+				<groupId>com.teabear.arlekin</groupId>
+				<artifactId>arlekin-persistence-mock</artifactId>
+				<version>${arlekin.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.teabear.arlekin</groupId>
+				<artifactId>arlekin-persistence</artifactId>
+				<version>${arlekin.version}</version>
+			</dependency>							
 		</dependencies>
 	</dependencyManagement>
 

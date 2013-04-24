@@ -13,7 +13,7 @@ import java.util.Map;
  * 
  * @author Maximiliano Britez
  */
-public class DrinkDAOArrayImpl{
+public class DrinkDAOArrayImpl implements DrinkDao{
 	
 	/** The list */
 	private Map<Long, Drink> drinks;
