@@ -3,7 +3,10 @@
  */
 package com.teabear.arlekin.representation;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.jboss.resteasy.annotations.providers.NoJackson;
 
 import com.teabear.arlekin.Drink;
 import com.teabear.arlekin.DrinkImpl;
@@ -27,6 +30,9 @@ public class DrinkRepresentation implements Drink {
 	
 	/** The name of the drink */
 	private String name;
+	
+	/** The type of the drink */
+	private Type type;
 	
 	@Override
 	/** {@inheritDoc} */
@@ -54,13 +60,15 @@ public class DrinkRepresentation implements Drink {
 
 	@Override
 	/** {@inheritDoc} */
-	public String getType() {
-		return null;
+	public Type getType() {
+		return this.type;
 	}
-
+	
 	@Override
 	/** {@inheritDoc} */
-	public void setType(Type type) {}
+	public void setType(final Type type) {
+		this.type = type;
+	}
 
 	@Override
 	/** {@inheritDoc} */

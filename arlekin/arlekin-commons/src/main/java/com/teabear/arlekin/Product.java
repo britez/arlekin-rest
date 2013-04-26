@@ -3,26 +3,24 @@
  */
 package com.teabear.arlekin;
 
-
 /**
  * This Class represents a general {@link Element}
  * stores the info regarding the type of element
  * 
  * @author Maximiliano Britez
  */
-public class Product {
+public interface Product {
 	
-	/** the Name of the product */
-	private String name;
+	/** @return the id of the product */
+	public Long getId() ;
+	
+	/** @param id - {@link Long} to set */
+	public void setId(final Long id) ;
 
 	/** @return the name of the product */
-	public String getName() {
-		return name;
-	}
+	public String getName() ;
 
 	/** @param name - {@link String} to set */
-	public void setName(final String name) {
-		this.name = name;
-	}
+	public void setName(final String name) ;
 
 }

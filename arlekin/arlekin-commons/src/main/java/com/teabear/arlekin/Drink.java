@@ -24,7 +24,7 @@ public interface Drink {
 	public void setName(final String name);
 
 	/** @return the {@link String} type of the drink */
-	public String getType();
+	public Type getType();
 	
 	/** @param type - {@link Type} to set */
 	public void setType(final Type type);

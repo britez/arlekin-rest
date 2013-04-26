@@ -49,8 +49,8 @@ public class DrinkImpl implements Drink{
 	
 	@Override
 	/** {@inheritDoc} */
-	public String getType() {
-		return this.type.toString();
+	public Type getType() {
+		return this.type;
 	}
 	
 	@Override

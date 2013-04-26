@@ -34,6 +34,8 @@ public class DrinkConverter {
         public DrinkRepresentation toRepresentation(final Drink drink) {
         	DrinkRepresentation representation = new DrinkRepresentation();
             BeanUtils.copyProperties(drink, representation, IGNORED_PROPERTIES);
+            //set other properties
+            representation.setType(drink.getType());
             return representation;
         }        
         

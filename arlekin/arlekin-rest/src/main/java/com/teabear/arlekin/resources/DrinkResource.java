@@ -4,6 +4,7 @@
 package com.teabear.arlekin.resources;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -18,6 +19,7 @@ import com.teabear.arlekin.DrinkImpl;
 import com.teabear.arlekin.DrinkService;
 import com.teabear.arlekin.converter.DrinkConverter;
 import com.teabear.arlekin.exception.DrinkNotFoundException;
+import com.teabear.arlekin.representation.DrinkRepresentation;
 
 /**
  * This class allows API to handle a {@link DrinkImpl},
@@ -62,4 +64,5 @@ public class DrinkResource {
 		}
 		return Response.ok(this.converter.toRepresentation(drink)).build();
 	}
+	
 }
