@@ -24,4 +24,10 @@ public interface ProductService {
 	
 	/** @return a List of {@link Product} */
 	public List<Product> list();
+	
+	/**
+	 * @param product - {@link Product} to persist
+	 * @return the created product
+	 */
+	public Product create(final Product product);
 }

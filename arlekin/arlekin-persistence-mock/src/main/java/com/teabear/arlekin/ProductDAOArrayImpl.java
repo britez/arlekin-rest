@@ -25,8 +25,11 @@ public class ProductDAOArrayImpl implements ProductDao{
 	}
 
 	/** {@inherit doc} */
-	public void save(final Product product) {
-		this.products.put(product.getId(), product);
+	public Product save(final Product product) {
+		Long id = new Long(this.products.size() + 1);
+		this.products.put(id, product);
+		product.setId(id);
+		return product;
 	}
 
 	/** {@inherit doc} */
@@ -44,7 +47,6 @@ public class ProductDAOArrayImpl implements ProductDao{
 	/** Load some test drinks into array */
 	private void load() {
 		final Product pr = new ProductImpl();
-		pr.setId(1L);
 		pr.setName("Vodka");
 		this.save(pr);
 	}

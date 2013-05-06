@@ -18,7 +18,10 @@ import com.teabear.arlekin.Product;
 public class ProductRepresentation implements Product{
 	
 	/** The ROOT representation */
-	static final String ROOT = "products";
+	static final String ROOT = "product";
+	
+	/** The PATH uri */
+	public static final String PATH = "/products";
 	
 	/** The id of the product */
 	private Long id;

@@ -16,7 +16,7 @@ interface ProductDao{
 	 * Store a Product
 	 * @param product - {@link Product} to store
 	 */
-	public void save(final Product product);
+	public Product save(final Product product);
 	
 	/**
 	 * Retrieves a Product

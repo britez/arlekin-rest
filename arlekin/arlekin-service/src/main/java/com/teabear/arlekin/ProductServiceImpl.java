@@ -36,4 +36,12 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> list() {
 		return this.dao.list();
 	}
+
+	@Override
+	/**
+	 * {@inherit doc}
+	 */
+	public Product create(final Product product) {
+		return this.dao.save(product);
+	}
 }

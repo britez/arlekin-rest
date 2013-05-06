@@ -3,38 +3,29 @@
  */
 package com.teabear.arlekin;
 
-
 /**
  * This Class represents an element into a
  * {@link Recipe}
  * 
  * @author Maximiliano Britez
  */
-public class Element {
+public interface Element {
 	
-	/** the quantity for the element */
-	private Long quantity;
+	/** @return the id of the element */
+	public Long getId();
 	
-	/** the product description for the element */
-	private Product product;
-
+	/** @param id - {@link Long} to set */
+	public void setId(final Long id);
+	
 	/** @return the quantity */
-	public Long getQuantity() {
-		return quantity;
-	}
+	public Long getQuantity();
 
 	/** @param quantity - {@link Long} to set */
-	public void setQuantity(final Long quantity) {
-		this.quantity = quantity;
-	}
+	public void setQuantity(final Long quantity);
 
 	/** @return the product */
-	public Product getProduct() {
-		return product;
-	}
+	public Product getProduct();
 
 	/** @param product - {@link Product} to set */
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+	public void setProduct(Product product);
 }
