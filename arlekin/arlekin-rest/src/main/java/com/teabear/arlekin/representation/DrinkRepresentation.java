@@ -3,10 +3,7 @@
  */
 package com.teabear.arlekin.representation;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import org.jboss.resteasy.annotations.providers.NoJackson;
 
 import com.teabear.arlekin.Drink;
 import com.teabear.arlekin.DrinkImpl;

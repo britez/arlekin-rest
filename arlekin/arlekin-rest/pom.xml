@@ -60,7 +60,6 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson-provider</artifactId>
-            <version>${resteasy.version}</version>
         </dependency>
 
 		<!-- Spring Framework -->
@@ -84,6 +83,12 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
+		</dependency>
+		
+		<!-- Mockito -->
+		<dependency>
+		  	<groupId>org.mockito</groupId>
+  			<artifactId>mockito-core</artifactId> 
 		</dependency>
 		
 		<!-- Local Dependencies -->
