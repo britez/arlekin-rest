@@ -16,7 +16,7 @@ interface DrinkDao{
 	 * Store a Drink
 	 * @param drink - {@link Drink} to store
 	 */
-	public void save(final Drink drink);
+	public Drink save(final Drink drink);
 	
 	/**
 	 * Retrieves a Drink

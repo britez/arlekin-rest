@@ -77,6 +77,5 @@ public class DrinkConverterTest {
 		Assert.assertEquals(expected.getName(), current.getName());
 		Assert.assertEquals(expected.getId(), current.getId());
 		Assert.assertEquals(expected.getRecipe(), current.getRecipe());
-		Assert.assertEquals(expected.getType(), current.getType());
 	}
 }

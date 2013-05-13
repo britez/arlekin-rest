@@ -16,12 +16,16 @@ import com.teabear.arlekin.exception.DrinkNotFoundException;
  */
 public class DrinkServiceImpl implements DrinkService {
 	
-	@Autowired
 	/** The dao */
+	@Autowired
 	private DrinkDao dao;
 	
-	@Override
+	/** The recipe service */
+	@Autowired
+	private RecipeService recipeService;
+	
 	/** {@inherit doc} */
+	@Override
 	public Drink get(final String drinkId) throws DrinkNotFoundException {
 		final Long id = Long.valueOf(drinkId);
 		final Drink drink = this.dao.get(id);
@@ -31,9 +35,18 @@ public class DrinkServiceImpl implements DrinkService {
 		return drink;
 	}
 
-	@Override
 	/** {@inherit doc} */
+	@Override
 	public List<Drink> list() {
 		return this.dao.list();
+	}
+
+	/**
+	 * {@inherit doc}
+	 */
+	@Override
+	public Drink create(final Drink drink) {
+		drink.setRecipe(this.recipeService.create(drink.getRecipe()));
+		return this.dao.save(drink);
 	}
 }

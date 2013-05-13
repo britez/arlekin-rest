@@ -20,13 +20,14 @@ public class DrinkDAOArrayImpl implements DrinkDao{
 	
 	public DrinkDAOArrayImpl() {
 		this.drinks = new HashMap<Long, Drink>();
-		//Load test drinks
-		this.load();
 	}
 
 	/** {@inherit doc} */
-	public void save(final Drink drink) {
-		this.drinks.put(drink.getId(), drink);
+	public Drink save(final Drink drink) {
+		Long id = new Long(this.drinks.size() + 1);
+		this.drinks.put(id, drink);
+		drink.setId(id);
+		return drink;
 	}
 
 	/** {@inherit doc} */
@@ -39,15 +40,5 @@ public class DrinkDAOArrayImpl implements DrinkDao{
 		List<Drink> result = new ArrayList<Drink>();
 		result.addAll(this.drinks.values());
 		return result;
-	}
-	
-	/** Load some test drinks into array */
-	private void load() {
-		final Drink dr = new DrinkImpl();
-		dr.setId(1L);
-		dr.setName("Sex on the Beach");
-		dr.setRecipe(new Recipe());
-		dr.setType(Type.DIRECT);
-		this.save(dr);
 	}
 }

@@ -26,9 +26,24 @@ public enum Type {
 		this.displayName = displayName;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString(){
 		return this.displayName;
 	}
 
+	/**
+	 * @param value - {@link String}
+	 * @return the {@link Type} value
+	 */
+	public static Type create(final String value){
+		for (Type type : Type.values()) {
+			if (type.toString().equalsIgnoreCase(value)){
+				return type;
+			}
+		}
+		return null;
+	}
 }

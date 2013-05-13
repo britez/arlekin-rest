@@ -12,18 +12,11 @@ import java.util.List;
  * 
  * @author Maximiliano Britez
  */
-public class Recipe {
+public interface Recipe {
 	
-	/** the elements of the recipe */
-	private List<Element> elements;
-
 	/** @return a list of elements*/
-	public List<Element> getElements() {
-		return elements;
-	}
+	public List<Element> getElements();
 
 	/** @param elements - {@link List} of {@Element} to set */
-	public void setElements(List<Element> elements) {
-		this.elements = elements;
-	}
+	public void setElements(final List<Element> elements);
 }

@@ -3,13 +3,17 @@
  */
 package com.teabear.arlekin.resources;
 
+import java.net.URI;
+
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriBuilder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -62,6 +66,18 @@ public class DrinkResource {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		return Response.ok(this.converter.toRepresentation(drink)).build();
+	}
+	
+	/**
+	 * @param drink - {@link DrinkRepresentation} to be created
+	 * @return {@link Response} with the created
+	 * {@link DrinkRepresentation} location
+	 */
+	@POST
+	public Response create(final DrinkRepresentation drink){
+		Drink result = this.service.create(this.converter.toDomain(drink));
+		URI location = UriBuilder.fromPath(DrinkRepresentation.PATH + "/" + result.getId()).build();
+		return Response.created(location).build();
 	}
 	
 }

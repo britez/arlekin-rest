@@ -10,22 +10,21 @@
 	<context:annotation-config />
 	
 	<!-- Resources -->
-<!-- 	<bean id="orderResource" class="com.starbucks.resource.OrderResource" /> -->
 	<bean id="productResource" class="com.teabear.arlekin.resources.ProductResource" />
 	<bean id="drinkResource" class="com.teabear.arlekin.resources.DrinkResource" />
 	
 	<!-- Converters -->
+	<bean id="recipeConverter" class="com.teabear.arlekin.converter.RecipeConverter" />
 	<bean id="productConverter" class="com.teabear.arlekin.converter.ProductConverter" />
 	<bean id="drinkConverter" class="com.teabear.arlekin.converter.DrinkConverter" />
 	
 	<!-- Services --> 
-<!-- 	<bean id="orderService" class="com.starbucks.services.OrderServiceImpl" /> -->
+	<bean id="recipeService" class="com.teabear.arlekin.RecipeServiceImpl" />
 	<bean id="productService" class="com.teabear.arlekin.ProductServiceImpl" />
 	<bean id="drinkService" class="com.teabear.arlekin.DrinkServiceImpl" />
 	
 	<!-- Daos -->
-<!-- 	<bean id="sharedMemory" class="com.starbucks.persistence.common.SharedMemory" /> -->
-<!-- 	<bean id="orderDao" class="com.starbucks.persistence.OrderDaoImpl"/> -->
+	<bean id="recipeDao" class="com.teabear.arlekin.RecipeDAOArrayImpl"/>
 	<bean id="productDao" class="com.teabear.arlekin.ProductDAOArrayImpl"/>
 	<bean id="drinkDao" class="com.teabear.arlekin.DrinkDAOArrayImpl"/>
 	

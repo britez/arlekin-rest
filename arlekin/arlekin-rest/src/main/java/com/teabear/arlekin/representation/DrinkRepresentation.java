@@ -5,10 +5,7 @@ package com.teabear.arlekin.representation;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.teabear.arlekin.Drink;
 import com.teabear.arlekin.DrinkImpl;
-import com.teabear.arlekin.Recipe;
-import com.teabear.arlekin.Type;
 
 /**
  * This class represents how a {@link DrinkImpl}
@@ -17,10 +14,12 @@ import com.teabear.arlekin.Type;
  * @author Maximiliano Britez
  */
 @XmlRootElement(name = DrinkRepresentation.ROOT)
-public class DrinkRepresentation implements Drink {
+public class DrinkRepresentation {
 	
 	/** The ROOT representation */
-	static final String ROOT = "drinks";
+	static final String ROOT = "drink";
+	
+	public static final String PATH = "/drinks";
 	
 	/** The id of the drink */
 	private Long id;
@@ -29,51 +28,48 @@ public class DrinkRepresentation implements Drink {
 	private String name;
 	
 	/** The type of the drink */
-	private Type type;
+	private String type;
 	
-	@Override
-	/** {@inheritDoc} */
+	/** The recipe representation */
+	private RecipeRepresentation recipe;
+	
+	/** Retrieves the id */
 	public Long getId() {
 		return id;
 	}
 
-	@Override
-	/** {@inheritDoc} */
+	/** Sets the  id */
 	public void setId(final Long id) {
 		this.id = id;
 	}
 	
-	@Override
-	/** {@inheritDoc} */
+	/** Retrieves the name */
 	public String getName() {
 		return name;
 	}
-	
-	@Override
-	/** {@inheritDoc} */
+
+	/** Sets the name */
 	public void setName(final String name) {
 		this.name = name;
 	}
 
-	@Override
-	/** {@inheritDoc} */
-	public Type getType() {
-		return this.type;
+	/** Retrieves the type */
+	public String getType() {
+		return this.type.toString();
 	}
 	
-	@Override
-	/** {@inheritDoc} */
-	public void setType(final Type type) {
+	/** Sets the type */
+	public void setType(final String type) {
 		this.type = type;
 	}
 
-	@Override
-	/** {@inheritDoc} */
-	public Recipe getRecipe() {
-		return null;
+	/** Retrieve the recipe */
+	public RecipeRepresentation getRecipe() {
+		return this.recipe;
 	}
 
-	@Override
-	/** {@inheritDoc} */
-	public void setRecipe(Recipe recipe) {}
+	/** set the recipe */
+	public void setRecipe(final RecipeRepresentation recipe) {
+		this.recipe = recipe;
+	}
 }
