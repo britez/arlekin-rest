@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.teabear.arlekin.exception.DrinkNotFoundException;
+import com.teabear.arlekin.exception.ProductNotFoundException;
 import com.teabear.arlekin.utils.ReflectionUtils;
 
 /**
@@ -26,6 +27,9 @@ public class DrinkServiceImplTest {
 	/** The service to test */
 	private DrinkServiceImpl service;
 	
+	/** The mocked recipe service */
+	private RecipeService mockedRecipeService;
+	
 	/** The mocked dao */
 	private DrinkDao mockedDao;
 	
@@ -36,7 +40,9 @@ public class DrinkServiceImplTest {
 	public void setUp(){
 		this.service = new DrinkServiceImpl();
 		this.mockedDao = Mockito.mock(DrinkDao.class);
+		this.mockedRecipeService = Mockito.mock(RecipeService.class);
 		ReflectionUtils.setField(this.service, "dao", this.mockedDao);
+		ReflectionUtils.setField(this.service, "recipeService", this.mockedRecipeService);
 	}
 	
 	/**
@@ -69,6 +75,20 @@ public class DrinkServiceImplTest {
 	public void testListDrink(){
 		List<Drink> result = this.service.list();
 		Assert.assertNotNull(result);
+	}
+	
+	/**
+	 * Ensures that a {@link Drink} is created
+	 * @throws ProductNotFoundException if the product not exists
+	 */
+	@Test
+	public void testCreateDrink() throws ProductNotFoundException{
+		final Drink drink = Mockito.mock(Drink.class);
+		final Recipe mockedRecipe = Mockito.mock(Recipe.class);
+		
+		Mockito.when(this.mockedRecipeService.create(mockedRecipe)).thenReturn(mockedRecipe);
+		
+		this.service.create(drink);
 	}
 	
 }
