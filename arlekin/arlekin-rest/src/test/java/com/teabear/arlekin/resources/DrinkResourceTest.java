@@ -17,6 +17,8 @@ import com.teabear.arlekin.Drink;
 import com.teabear.arlekin.DrinkService;
 import com.teabear.arlekin.converter.DrinkConverter;
 import com.teabear.arlekin.exception.DrinkNotFoundException;
+import com.teabear.arlekin.exception.ProductNotFoundException;
+import com.teabear.arlekin.representation.DrinkRepresentation;
 import com.teabear.arlekin.utils.ReflectionUtils;
 
 /**
@@ -76,5 +78,39 @@ public class DrinkResourceTest {
 		Assert.assertNotNull(result);
 		Assert.assertEquals(Status.OK.getStatusCode(), result.getStatus());
 	}
-
+	
+	/**
+	 * Ensures that a {@link Drink} is created
+	 * @throws ProductNotFoundException if the test fails
+	 */
+	@Test
+	public void testCreateDrink() throws ProductNotFoundException{
+		final DrinkRepresentation drink = Mockito.mock(DrinkRepresentation.class);
+		final Drink mockedDrink = Mockito.mock(Drink.class);
+		
+		Mockito.when(this.mockedConverter.toDomain(drink)).thenReturn(mockedDrink);
+		Mockito.when(this.mockedService.create(mockedDrink)).thenReturn(mockedDrink);
+		
+		Response result = this.resource.create(drink);
+		Assert.assertNotNull(result);
+		Assert.assertEquals(Status.CREATED.getStatusCode(), result.getStatus());
+	}
+	
+	
+	/**
+	 * Ensures that a {@link Drink} is not created
+	 * @throws ProductNotFoundException 
+	 */
+	@Test
+	public void testCreateDrinkFail() throws ProductNotFoundException {
+		final DrinkRepresentation drink = Mockito.mock(DrinkRepresentation.class);
+		final Drink mockedDrink = Mockito.mock(Drink.class);
+		
+		Mockito.when(this.mockedConverter.toDomain(drink)).thenReturn(mockedDrink);
+		Mockito.when(this.mockedService.create(mockedDrink)).thenThrow(new ProductNotFoundException());
+		
+		Response result = this.resource.create(drink);
+		Assert.assertNotNull(result);
+		Assert.assertEquals(Status.BAD_REQUEST.getStatusCode(), result.getStatus());
+	}
 }

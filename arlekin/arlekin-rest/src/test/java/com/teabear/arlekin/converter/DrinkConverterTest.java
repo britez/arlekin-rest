@@ -87,6 +87,16 @@ public class DrinkConverterTest {
 			this.assertFields(drink,drinkRepresentation);
 		}
 	}
+	
+	/**
+	 * Ensures that a representation is converted
+	 * to domain.
+	 */
+	@Test
+	public void testConvertToDomain(){
+		final DrinkRepresentation rep = Mockito.mock(DrinkRepresentation.class);
+		this.converter.toDomain(rep);
+	}
 
 	/**
 	 * Asserts each field of the domain and representation objects
