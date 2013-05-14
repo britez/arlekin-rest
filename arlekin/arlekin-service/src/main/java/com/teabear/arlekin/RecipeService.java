@@ -3,6 +3,8 @@
  */
 package com.teabear.arlekin;
 
+import com.teabear.arlekin.exception.ProductNotFoundException;
+
 
 /**
  * This class represents how a {@link RecipeImpl}
@@ -17,6 +19,7 @@ public interface RecipeService {
 	 * 
 	 * @param recipe - {@link Recipe}
 	 * @return a {@link RecipeImpl} 
+	 * @throws ProductNotFoundException if the product not exists
 	 */
-	public Recipe create(final Recipe recipe);
+	public Recipe create(final Recipe recipe) throws ProductNotFoundException;
 }

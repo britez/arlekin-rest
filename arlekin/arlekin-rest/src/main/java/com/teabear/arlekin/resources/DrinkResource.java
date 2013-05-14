@@ -22,6 +22,7 @@ import com.teabear.arlekin.DrinkImpl;
 import com.teabear.arlekin.DrinkService;
 import com.teabear.arlekin.converter.DrinkConverter;
 import com.teabear.arlekin.exception.DrinkNotFoundException;
+import com.teabear.arlekin.exception.ProductNotFoundException;
 import com.teabear.arlekin.representation.DrinkRepresentation;
 
 /**
@@ -75,7 +76,12 @@ public class DrinkResource {
 	 */
 	@POST
 	public Response create(final DrinkRepresentation drink){
-		Drink result = this.service.create(this.converter.toDomain(drink));
+		final Drink result;
+		try {
+			result = this.service.create(this.converter.toDomain(drink));
+		} catch (final ProductNotFoundException e) {
+			return Response.status(Status.BAD_REQUEST).build();
+		}
 		URI location = UriBuilder.fromPath(DrinkRepresentation.PATH + "/" + result.getId()).build();
 		return Response.created(location).build();
 	}

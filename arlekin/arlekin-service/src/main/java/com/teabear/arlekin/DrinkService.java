@@ -6,6 +6,7 @@ package com.teabear.arlekin;
 import java.util.List;
 
 import com.teabear.arlekin.exception.DrinkNotFoundException;
+import com.teabear.arlekin.exception.ProductNotFoundException;
 
 /**
  * This class represents how a {@link DrinkImpl}
@@ -37,6 +38,7 @@ public interface DrinkService {
 	 * 
 	 * @param drink - {@link String}
 	 * @return a {@link DrinkImpl} 
+	 * @throws ProductNotFoundException if the product non exists
 	 */
-	public Drink create(final Drink drink);
+	public Drink create(final Drink drink) throws ProductNotFoundException;
 }

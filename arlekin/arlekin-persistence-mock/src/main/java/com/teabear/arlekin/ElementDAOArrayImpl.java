@@ -3,9 +3,7 @@
  */
 package com.teabear.arlekin;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,17 +26,5 @@ public class ElementDAOArrayImpl implements ElementDao{
 		this.elements.put(id, element);
 		element.setId(id);
 		return element;
-	}
-
-	/** {@inherit doc} */
-	public Element get(final Long id) {
-		return this.elements.get(id);
-	}
-	
-	/** {@inherit doc} */
-	public List<Element> list(final Long recipeId) {
-		List<Element> result = new ArrayList<Element>();
-		result.addAll(this.elements.values());
-		return result;
 	}
 }

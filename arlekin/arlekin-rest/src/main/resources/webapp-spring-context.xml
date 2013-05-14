@@ -14,16 +14,19 @@
 	<bean id="drinkResource" class="com.teabear.arlekin.resources.DrinkResource" />
 	
 	<!-- Converters -->
+	<bean id="elementConverter" class="com.teabear.arlekin.converter.ElementConverter" />
 	<bean id="recipeConverter" class="com.teabear.arlekin.converter.RecipeConverter" />
 	<bean id="productConverter" class="com.teabear.arlekin.converter.ProductConverter" />
 	<bean id="drinkConverter" class="com.teabear.arlekin.converter.DrinkConverter" />
 	
-	<!-- Services --> 
+	<!-- Services -->
+	<bean id="elementService" class="com.teabear.arlekin.ElementServiceImpl" /> 
 	<bean id="recipeService" class="com.teabear.arlekin.RecipeServiceImpl" />
 	<bean id="productService" class="com.teabear.arlekin.ProductServiceImpl" />
 	<bean id="drinkService" class="com.teabear.arlekin.DrinkServiceImpl" />
 	
 	<!-- Daos -->
+	<bean id="elementDao" class="com.teabear.arlekin.ElementDAOArrayImpl"/>
 	<bean id="recipeDao" class="com.teabear.arlekin.RecipeDAOArrayImpl"/>
 	<bean id="productDao" class="com.teabear.arlekin.ProductDAOArrayImpl"/>
 	<bean id="drinkDao" class="com.teabear.arlekin.DrinkDAOArrayImpl"/>

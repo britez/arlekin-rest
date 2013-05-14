@@ -14,7 +14,11 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.teabear.arlekin.Drink;
+import com.teabear.arlekin.Recipe;
+import com.teabear.arlekin.Type;
 import com.teabear.arlekin.representation.DrinkRepresentation;
+import com.teabear.arlekin.representation.RecipeRepresentation;
+import com.teabear.arlekin.utils.ReflectionUtils;
 
 /**
  * Tests for {@link DrinkConverter}
@@ -27,11 +31,16 @@ public class DrinkConverterTest {
 	/** Converter to test */
 	private DrinkConverter converter;
 	
+	/** mocked converter */
+	private RecipeConverter mockedRecipeConverter;
+	
 	/**
 	 * Initializes the test */
 	@Before
 	public void setUp(){
 		this.converter = new DrinkConverter();
+		this.mockedRecipeConverter = Mockito.mock(RecipeConverter.class);
+		ReflectionUtils.setField(this.converter, "recipeConverter", mockedRecipeConverter);
 	}
 	
 	/**
@@ -41,6 +50,13 @@ public class DrinkConverterTest {
 	@Test
 	public void testConvertToRepresentation(){
 		final Drink drink = Mockito.mock(Drink.class);
+		final Recipe mockedRecipe = Mockito.mock(Recipe.class);
+		final RecipeRepresentation mockedRecipeRepresentation = Mockito.mock(RecipeRepresentation.class);
+		
+		Mockito.when(drink.getType()).thenReturn(Type.DIRECT);
+		Mockito.when(drink.getRecipe()).thenReturn(mockedRecipe);
+		Mockito.when(this.mockedRecipeConverter.toRepresentation(mockedRecipe)).thenReturn(mockedRecipeRepresentation);
+		
 		DrinkRepresentation representation = this.converter.toRepresentation(drink);
 		this.assertFields(drink, representation);
 	}
@@ -52,6 +68,12 @@ public class DrinkConverterTest {
 	@Test
 	public void testConvertToListRepresentation(){
 		final Drink drink = Mockito.mock(Drink.class);
+		final Recipe mockedRecipe = Mockito.mock(Recipe.class);
+		final RecipeRepresentation mockedRecipeRepresentation = Mockito.mock(RecipeRepresentation.class);
+		
+		Mockito.when(drink.getType()).thenReturn(Type.DIRECT);
+		Mockito.when(drink.getRecipe()).thenReturn(mockedRecipe);
+		Mockito.when(this.mockedRecipeConverter.toRepresentation(mockedRecipe)).thenReturn(mockedRecipeRepresentation);
 		
 		List<Drink> list = new ArrayList<Drink>();
 		list.add(drink);
@@ -76,6 +98,6 @@ public class DrinkConverterTest {
 		Assert.assertNotNull(current);
 		Assert.assertEquals(expected.getName(), current.getName());
 		Assert.assertEquals(expected.getId(), current.getId());
-		Assert.assertEquals(expected.getRecipe(), current.getRecipe());
+		Assert.assertNotNull(current.getRecipe());
 	}
 }

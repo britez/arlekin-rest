@@ -3,7 +3,8 @@
  */
 package com.teabear.arlekin.representation;
 
-import javax.xml.bind.annotation.XmlElement;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.teabear.arlekin.RecipeImpl;
@@ -14,23 +15,22 @@ import com.teabear.arlekin.RecipeImpl;
  * 
  * @author Maximiliano Britez
  */
-@XmlRootElement(name = RecipeRepresentation.ROOT)
-public class RecipeRepresentation {
+@XmlRootElement(name = ElementsRepresentation.ROOT)
+public class ElementsRepresentation {
 	
 	/** The ROOT representation */
-	static final String ROOT = "recipe";
+	static final String ROOT = "elements";
 	
 	/** The list of elements */
-	private ElementsRepresentation elements;
+	private List<ElementRepresentation> element;
 	
 	/** Retrieves the elements */
-	@XmlElement(name="elements")
-	public ElementsRepresentation getElements() {
-		return elements;
+	public List<ElementRepresentation> getElement() {
+		return element;
 	}
 
 	/** Sets the elements */
-	public void setElements(final ElementsRepresentation list) {
-		this.elements = list;
+	public void setElement(final List<ElementRepresentation> list) {
+		this.element = list;
 	}
 }

@@ -32,21 +32,25 @@ public class ElementImpl implements Element{
 		this.id = id;
 	}
 	
+	@Override
 	/** @return the quantity */
 	public Long getQuantity() {
 		return quantity;
 	}
 
+	@Override
 	/** @param quantity - {@link Long} to set */
 	public void setQuantity(final Long quantity) {
 		this.quantity = quantity;
 	}
 
+	@Override
 	/** @return the product */
 	public Product getProduct() {
 		return product;
 	}
 
+	@Override
 	/** @param product - {@link Product} to set */
 	public void setProduct(Product product) {
 		this.product = product;

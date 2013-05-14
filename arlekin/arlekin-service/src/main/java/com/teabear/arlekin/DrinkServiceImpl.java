@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.teabear.arlekin.exception.DrinkNotFoundException;
+import com.teabear.arlekin.exception.ProductNotFoundException;
 
 /**
  * Implementation of {@link DrinkService}
@@ -45,7 +46,7 @@ public class DrinkServiceImpl implements DrinkService {
 	 * {@inherit doc}
 	 */
 	@Override
-	public Drink create(final Drink drink) {
+	public Drink create(final Drink drink) throws ProductNotFoundException{
 		drink.setRecipe(this.recipeService.create(drink.getRecipe()));
 		return this.dao.save(drink);
 	}

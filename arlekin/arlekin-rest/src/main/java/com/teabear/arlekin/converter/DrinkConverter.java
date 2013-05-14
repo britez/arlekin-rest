@@ -57,7 +57,6 @@ public class DrinkConverter {
     	Drink domain = new DrinkImpl();
         BeanUtils.copyProperties(drink, domain, IGNORED_PROPERTIES);
         //set other properties
-        //domain.setType(Type.valueOf(drink.getType()));
         domain.setType(Type.create(drink.getType()));
         domain.setRecipe(this.recipeConverter.toDomain(drink.getRecipe()));
         return domain;
